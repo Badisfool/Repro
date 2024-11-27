@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastFood</title>
+</head>
+<style>
+    html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; 
+    cursor: none;
+}
+h1{
+    position: relative;
+    color: #ffffff;
+    left: -300px;
+    top: 50px;
+     font-size: 55px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#app {
+    overflow: hidden;
+    touch-action: pan-up;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    text-shadow: 0 0 5px #000000, 0 0 20px #000, 0 0 30px #000;
+    position: relative; 
+    width: 100%; 
+    height: 100vh;
+}
+
+#hero {
+    position: relative; 
+    z-index: 10; 
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+#app canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    z-index: 1; 
+}
+#custom-cursor {
+    position: absolute;
+    font-size: 30px; 
+    pointer-events: none; 
+    z-index: 100;
+    transition: transform 0.05s ease-out; 
+    color: #00ff99; 
+    text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99, 0 0 30px #00ff99, 0 0 40px #00ff99; /* Neon glow effect */
+}
+
+#trail {
+    opacity: 0.5; 
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    transition: transform 0.2s ease-out; 
+}
+
+
+    .A {
+        position: absolute;
+        background-size: 150% 200%;
+        margin: 0px;
+        height: 100vh;
+        width: 100vw;
+        z-index: +101;
+    }
+
+    .AA {
+        position: absolute;
+        background-color: white;
+        opacity: 20%;
+        left: 180px;
+        top: 60px;
+        height: 500px;
+        width: 1000px;
+        border-radius: 15px;
+        box-shadow: 5px 5px 10px rgb(61, 6, 63);
+        z-index: +1;
+    }
+
+    .AB {
+        position: absolute;
+        background-color: transparent;
+        left: 180px;
+        top: 60px;
+        height: 500px;
+        width: 1000px;
+        border-radius: 15px;
+        outline: 1px solid ghostwhite;
+        z-index: +1;
+    }
+    
+    .png {
+        position: relative;
+        left: 50px;
+        top: 10px;
+    }
+    
+    .a1 {
+        position: relative;
+        font-family: cursive;
+        font-size: 27px;
+        top: 25px;
+        left: 100px;
+    }
+
+    .hr1 {
+        position: relative;
+        width: 30px;
+        height: 3px;
+        top: -150px;
+        left: 950px;
+        background-color: palevioletred;
+        z-index: +2;
+    }
+
+    .hr2 {
+        position: relative;
+        width: 30px;
+        height: 3px;
+        top: -160px;
+        left: 950px;
+        background-color: palevioletred;
+        z-index: +2;
+    }
+
+    .hr3 {
+        position: relative;
+        width: 30px;
+        height: 3px;
+        top: -170px;
+        left: 950px;
+        background-color: palevioletred;
+        z-index: +2;
+    }
+
+    .a3 {
+        position: relative;
+        left: -300px;
+        top: 55px;
+        color: antiquewhite;
+        font-size: 27px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .a4 {
+        position: relative;
+        left: -300px;
+        top: 60px;
+        font-size: 16px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .a5 {
+        position: relative;
+        padding: 3px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+        left: -300px;
+        top: 80px;
+        color: antiquewhite;
+        background-color: rgb(96, 70, 97);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-decoration: none;
+    }
+
+    .a5:hover {
+        background-color: rgb(76, 50, 77);
+    }
+
+    .a6 {
+        position: relative;
+        padding: 3px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+        left: -300px;
+        top: 80px;
+        color: black;
+        background-color: rgb(201, 201, 201);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-decoration: none;
+    }
+
+    .a6:hover {
+        background-color: antiquewhite;
+    }
+</style>
+<body>
+        <div id="app">
+            <div id="custom-cursor"></div> 
+            <div id="hero">
+                
+                <img src="i want to eat.png" alt="" class="png">
+                <div class="AA"></div>
+                <div class="AB">
+                    <h1>AMAZING <br> BURGER</h1>
+                    <div class="a1"></div>
+                    <div class="hr1"></div>
+                    <div class="hr2"></div>
+                    <div class="hr3"></div>
+                    <div class="a3">AT LOW PRICE</div>
+                    <div class="a4">Get the best of your take away <br> with low budget </div>
+                    <a href="#" role="button" class="a5">View menu</a>
+                    <a href="#" role="button" class="a6">Book a table</a>
+                </div>
+            </div>
+        </div>
+    
+    
+        <script type="module" src="script.js"></script>
+</body>
+</html>
